@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Core CSS - Include with every page -->
+    <link type="text/css" rel="stylesheet" href="../../resources/css/bootstrap-3.1.1.min.css" 
+        data-th-href="@{/resources/css/bootstrap-3.1.1.min.css}" />
+        
+    <link type="text/css" rel="stylesheet" href="../../resources/font-awesome/css/font-awesome.css" 
+        data-th-href="@{/resources/font-awesome/css/font-awesome.css}" />
+
+    <!-- SB Admin CSS - Include with every page -->
+    <link type="text/css" rel="stylesheet" href="../../resources/css/sb-admin.css" 
+        data-th-href="@{/resources/css/sb-admin.css}" />
+    
+    <style>
+        .no-border-on-me>thead>tr>th,
+        .no-border-on-me>tbody>tr>th,
+        .no-border-on-me>tfoot>tr>th,
+        .no-border-on-me>thead>tr>td,
+        .no-border-on-me>tbody>tr>td,
+        .no-border-on-me>tfoot>tr>td
+        {
+            border-top-style: none;
+            border-bottom-style: none;
+        }
+    </style>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    <title data-th-text="#{strategy.edit.page.title}">Title</title>
+</head>
+
+<body>
+
+<div id="wrapper">                <!-- /#wrapper -->
+
+    <div data-th-replace="fragments/sb-admin :: top-nav"></div>
+    
+    <div data-th-replace="fragments/sb-admin :: vert-nav"></div>
+
+    <div id="page-wrapper">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <h4 class="page-header" data-th-text="#{strategy.edit.head.title}">Edit Strategy</h4>
+                <div class="col-sm-2"></div>
+                <div class="col-sm-6">
+					<form class="form-horizontal" action="#" data-th-action="@{/strategy/edit}" data-th-object="${strategy}" method="post">
+						<div class="form-group">
+							<label class="col-sm-5 control-label" data-th-text="#{strategy.list.type.label}">Strategy Type</label>
+							<div class="col-sm-7">
+								<input type="text" hidden="hidden" data-th-value="*{id}" data-th-field="*{id}" ></input>
+								<input type="text" class="form-control" data-th-value="*{type}" data-th-field="*{type}" ></input>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-5 control-label" data-th-text="#{strategy.list.name.label}">Strategy Name</label>
+							<div class="col-sm-7">
+								<input type="text" class="form-control" data-th-value="*{name}" data-th-field="*{name}" ></input>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-offset-5 col-sm-7" >
+								<button type="submit" class="btn btn-primary"        name="action" data-th-value="#{button.action.save}"   data-th-text="#{button.label.save}"  >Save</button>
+								<button type="submit" class="btn btn-default active" name="action" data-th-value="#{button.action.cancel}" data-th-text="#{button.label.cancel}">Cancel</button>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-offset-5 col-sm-7" >
+								<p class="text-danger" data-th-if="${#fields.hasErrors('type')}" data-th-errors="*{type}">type error</p> 
+								<p class="text-danger" data-th-if="${#fields.hasErrors('name')}" data-th-errors="*{name}">name error</p> 
+							</div>
+						</div>
+					</form>
+			    </div>
+                <div class="col-sm-4"></div>
+					
+            </div>  <!-- /.col-lg-12 -->                
+        </div>      <!-- /.row -->              
+    </div>          <!-- page wrapper -->
+</div>              <!-- /#wrapper -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script type="text/javascript" src="../../resources/js/jquery-1.11.0.min.js" 
+        data-th-src="@{/resources/js/jquery-1.11.0.min.js}"></script>
+        
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script type="text/javascript" src="../../resources/js/bootstrap-3.1.1.min.js" 
+        data-th-src="@{/resources/js/bootstrap-3.1.1.min.js}"></script>
+
+    <!-- Core Scripts - Include with every page -->
+    <script type="text/javascript" src="../../resources/js/plugins/metisMenu/jquery.metisMenu.js" 
+        data-th-src="@{/resources/js/plugins/metisMenu/jquery.metisMenu.js}"></script>
+        
+    <!-- SB Admin Scripts - Include with every page -->
+    <script type="text/javascript" src="../../resources/js/sb-admin.js" 
+        data-th-src="@{/resources/js/sb-admin.js}"></script>
+
+</body>
+</html>
+
+			
